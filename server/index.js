@@ -8,6 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+app.get('/', (req, res) => res.send('Word Budget server running'));
 app.get('/health', (req, res) => res.status(200).send('ok'));
 
 app.get('/host', (req, res) => {
