@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Word Budget — Play</title>
+  <link rel="stylesheet" href="/play/play.css">
+</head>
+<body>
+  <div id="app">
+
+    <div id="screen-join" class="screen active">
+      <h1>WORD BUDGET</h1>
+      <div class="form-group">
+        <label for="input-code">Room Code</label>
+        <input type="text" id="input-code" maxlength="4" autocapitalize="characters" autocomplete="off" placeholder="ABCD">
+      </div>
+      <div class="form-group">
+        <label for="input-name">Your Name</label>
+        <input type="text" id="input-name" maxlength="16" autocomplete="off" placeholder="Enter name">
+      </div>
+      <button id="btn-join" class="btn-primary">JOIN</button>
+      <p id="join-error" class="error"></p>
+    </div>
+
+    <div id="screen-lobby" class="screen">
+      <p class="room-info">Room: <span id="lobby-code" class="highlight"></span></p>
+      <h2>You're in!</h2>
+      <div id="lobby-players" class="player-list"></div>
+      <p class="waiting">Waiting for host to start...</p>
+    </div>
+
+    <div id="screen-writing" class="screen">
+      <div class="write-header">
+        <span id="write-round-info"></span>
+        <span id="write-word-limit" class="highlight"></span>
+      </div>
+      <p class="prompt" id="write-prompt"></p>
+      <textarea id="input-answer" rows="3" placeholder="Type your answer..."></textarea>
+      <p class="word-count"><span id="word-count">0</span>/<span id="word-max">15</span> words</p>
+      <div class="timer" id="write-timer"></div>
+      <button id="btn-submit" class="btn-primary">SUBMIT</button>
+      <p id="write-error" class="error"></p>
+    </div>
+
+    <div id="screen-submitted" class="screen">
+      <h2>Submitted!</h2>
+      <p class="waiting">Waiting for other players...</p>
+      <div class="timer" id="submitted-timer"></div>
+    </div>
+
+    <div id="screen-voting" class="screen">
+      <p class="prompt" id="vote-prompt"></p>
+      <div id="vote-options"></div>
+      <div class="timer" id="vote-timer"></div>
+    </div>
+
+    <div id="screen-own-matchup" class="screen">
+      <h2>YOUR MATCHUP</h2>
+      <p class="waiting">Sit back and watch the votes roll in...</p>
+      <div class="timer" id="own-timer"></div>
+    </div>
+
+    <div id="screen-voted" class="screen">
+      <h2>Vote cast!</h2>
+      <p class="waiting">Waiting for results...</p>
+    </div>
+
+    <div id="screen-result" class="screen">
+      <p class="prompt" id="result-prompt"></p>
+      <div id="result-cards"></div>
+    </div>
+
+    <div id="screen-round-end" class="screen">
+      <h2 id="phone-round-title"></h2>
+      <div id="phone-round-standings" class="standings"></div>
+    </div>
+
+    <div id="screen-set-end" class="screen">
+      <h2 id="phone-set-title"></h2>
+      <p id="phone-your-score" class="your-score"></p>
+      <div id="phone-set-standings" class="standings"></div>
+    </div>
+
+    <div id="screen-final" class="screen">
+      <h2>FINAL SCORES</h2>
+      <p id="phone-final-score" class="your-score"></p>
+      <div id="phone-final-standings" class="standings"></div>
+      <p class="waiting">Waiting for host...</p>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/play/play.js"></script>
+</body>
+</html>

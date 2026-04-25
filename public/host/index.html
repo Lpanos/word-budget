@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Budget — Host</title>
+  <link rel="stylesheet" href="/host/host.css">
+</head>
+<body>
+  <div id="app">
+
+    <div id="screen-loading" class="screen active">
+      <h1>WORD BUDGET</h1>
+      <p>Creating room...</p>
+    </div>
+
+    <div id="screen-lobby" class="screen">
+      <div class="room-badge" id="lobby-room-code-badge"></div>
+      <h1>WORD BUDGET</h1>
+      <p class="subtitle">Join at: <strong id="join-url"></strong></p>
+      <p class="room-code-display">Room Code: <span id="lobby-code"></span></p>
+      <div id="player-list" class="player-grid"></div>
+      <button id="btn-start" class="btn-primary" disabled>START GAME</button>
+      <p id="start-hint" class="hint">Need at least 2 players</p>
+    </div>
+
+    <div id="screen-prompt-write" class="screen">
+      <div class="top-bar">
+        <span class="room-badge-small" id="write-room-code"></span>
+        <span id="round-info"></span>
+      </div>
+      <div class="big-number" id="word-limit-display"></div>
+      <p class="label">WORDS</p>
+      <div class="timer" id="write-timer"></div>
+      <p class="status" id="submission-status">Waiting for answers...</p>
+      <div class="progress-bar"><div class="progress-fill" id="submission-progress"></div></div>
+    </div>
+
+    <div id="screen-matchup-vote" class="screen">
+      <div class="top-bar">
+        <span class="room-badge-small" id="vote-room-code"></span>
+        <span id="matchup-counter"></span>
+      </div>
+      <p class="prompt-text" id="vote-prompt"></p>
+      <div id="answers-display" class="answers-row"></div>
+      <div class="timer" id="vote-timer"></div>
+      <p class="vote-cta">VOTE NOW!</p>
+    </div>
+
+    <div id="screen-matchup-result" class="screen">
+      <div class="top-bar">
+        <span class="room-badge-small" id="result-room-code"></span>
+      </div>
+      <p class="prompt-text" id="result-prompt"></p>
+      <div id="results-display" class="answers-row"></div>
+    </div>
+
+    <div id="screen-round-end" class="screen">
+      <h2 id="round-end-title"></h2>
+      <div id="round-standings" class="standings"></div>
+    </div>
+
+    <div id="screen-set-end" class="screen">
+      <h2 id="set-end-title"></h2>
+      <div id="set-standings" class="standings"></div>
+    </div>
+
+    <div id="screen-final" class="screen">
+      <h2>FINAL SCORES</h2>
+      <div id="podium" class="podium"></div>
+      <div id="final-standings" class="standings"></div>
+      <button id="btn-play-again" class="btn-primary">PLAY AGAIN</button>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/host/host.js"></script>
+</body>
+</html>

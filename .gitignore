@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.spec.md
+*_spec.md
+word_budget_prototype_spec.md
+CLAUDE.md
+.claude/
